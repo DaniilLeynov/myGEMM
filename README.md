@@ -50,6 +50,12 @@ ENABLE_CUDA=0 нужно если собираем без CUDA, по умолч�
 
 <h1>Результаты тестов для GPU PowerVR B-Series BXE-2-32 на Плате BananaPi </h1>
 
+![image](https://github.com/user-attachments/assets/9dff69c3-746d-4e2e-90fc-3c968adadac1)
+
+![image](https://github.com/user-attachments/assets/ba1fbafa-fcba-4829-97f4-cfee1fb1770f)
+
+
+
 
 
 
