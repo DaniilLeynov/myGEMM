@@ -3,7 +3,7 @@ clGEMM
 
 This repo contains some files for YADRO 2025 Winter School.
 
-Для сбора данных можно использовать pull_data.py. Она перенаправляет все аргументы для сборки в make.
+Для сбора данных можно использовать pull_data.py. Он перенаправляет все аргументы для сборки в make.
 
 	python3 pull_data.py <параметры>
 
@@ -90,3 +90,19 @@ Be aware that the minimal working example does not:
 *	Load a kernel-file from disk, instead it is embedded as a string
 
 ###################################################
+
+<h1>Результаты тестов для GPU PowerVR B-Series BXE-4-32 на Плате StarFive </h1>
+![image](https://github.com/user-attachments/assets/49c01e38-2cef-4229-b821-ccfb74c1fe63)
+![image](https://github.com/user-attachments/assets/8556d79b-951a-401b-bdee-4acf6a8392a5)
+![image](https://github.com/user-attachments/assets/b7309b6c-8cc7-413b-8971-72decf4f1bff)
+![image](https://github.com/user-attachments/assets/96985a66-569b-4820-bc0b-374188fda10d)
+![image](https://github.com/user-attachments/assets/8ea088ad-ecd5-4681-9766-54b3019e4d0d)
+![image](https://github.com/user-attachments/assets/1fa67133-375e-43d1-9335-ed6ce93c4a59)
+
+<h1>Результаты тестов для GPU PowerVR B-Series BXE-2-32 на Плате BananaPi </h1>
+
+
+
+
+
+
