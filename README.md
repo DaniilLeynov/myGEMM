@@ -31,9 +31,7 @@ ENABLE_CUDA=0 нужно если собираем без CUDA, по умолч�
 
 
 
-
-
-<h1>Результаты тестов для GPU PowerVR B-Series BXE-4-32 на Плате StarFive </h1>
+<h1>Результаты тестов для GPU IMG BXE-4-32 на Плате StarFive </h1>
 
 ![image](https://github.com/user-attachments/assets/49c01e38-2cef-4229-b821-ccfb74c1fe63)
 
@@ -48,11 +46,19 @@ ENABLE_CUDA=0 нужно если собираем без CUDA, по умолч�
 ![image](https://github.com/user-attachments/assets/1fa67133-375e-43d1-9335-ed6ce93c4a59)
 
 
-<h1>Результаты тестов для GPU PowerVR B-Series BXE-2-32 на Плате BananaPi </h1>
+<h1>Результаты тестов для GPU IMG BXE-2-32на Плате BananaPi </h1>
 
 ![image](https://github.com/user-attachments/assets/9dff69c3-746d-4e2e-90fc-3c968adadac1)
 
 ![image](https://github.com/user-attachments/assets/ba1fbafa-fcba-4829-97f4-cfee1fb1770f)
+
+
+<h1>Сравнение результатов тестов для двух плат </h1>
+
+![image](https://github.com/user-attachments/assets/6b27f0f9-9aa9-4998-8c03-129532c570ca)
+
+![image](https://github.com/user-attachments/assets/3f13cce9-e7a2-422c-a1d8-02adaf0b2bb7)
+
 
 
 
