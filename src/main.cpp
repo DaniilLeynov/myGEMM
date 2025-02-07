@@ -13,8 +13,14 @@
 //
 // =================================================================================================
 
+
 // Common include
 #include "common.h"
+
+#define USE_CSV_OUT_FORMAT
+#ifdef USE_CSV_OUT_FORMAT
+#include "settings.h"
+#endif
 
 // Global variable with timing results
 profile_t timers[NUM_TIMERS];
@@ -28,11 +34,15 @@ int main(int argc, char* argv[]) {
 
     // Start of the function
     printf("\n##\n");
+#ifdef USE_CSV_OUT_FORMAT
+    printf("backend,selected_kernel,work_group_size,cl_compiler_options,matrix_dimensions,elapsed_s\n");
+#endif
     srand(time(NULL));
 
     // Compute the peak performance of the GPU
     double peak = GPU_CLOCK * GPU_CORES * GPU_MOD;
 
+#ifndef USE_CSV_OUT_FORMAT
     // Print information about the different configurations
     printf("## --- Configurations ---\n");
     for (int c=0; c<=3; c++) {
@@ -46,9 +56,10 @@ int main(int argc, char* argv[]) {
             case 3: printf("## myGEMM.cl on '%s', peak: %.1lf GFLOPS\n", GPU_NAME, peak); break;
         }
     }
+#endif
 
     // Loop over the different input/output matrix sizes
-    for (int size=MINSIZE; size<=MAXSIZE; size=size*2) {
+    for (int size=MINSIZE; size<=MAXSIZE; size=STEP) {
 
         // Set the performance counters to zero
         for (int t=0; t<NUM_TIMERS; t++) {
@@ -60,8 +71,10 @@ int main(int argc, char* argv[]) {
         const int k = size;
         const int m = size;
         const int n = size;
+#ifndef USE_CSV_OUT_FORMAT
         printf("##\n");
         printf("## --- %dx%dx%d ---\n", k, m, n);
+#endif
 
         // Allocate memory for the matrices and fill the inputs with random numbers
         float* A = (float*)malloc(m*k*sizeof(float*));
@@ -128,8 +141,12 @@ int main(int argc, char* argv[]) {
             double seconds = wtime(timers[c]);
             double performance = gflops(timers[c]);
             double fraction = 100.0 * performance / peak;
+#ifdef USE_CSV_OUT_FORMAT
+            printf("%9s,%2d,%2d,%s,%d,%.5f\n", name, KERNEL, TS, COMPILER_OPTIONS, k, seconds);
+#else
             printf("## [%9s] %6.3lf s --> %6.1lf GFLOPS (%2.0lf%%), L2 norm: %.2e\n",
                    name, seconds, performance, fraction, L2norm);
+#endif
         }
 
         // Free up the matrices

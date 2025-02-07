@@ -28,14 +28,11 @@ void checkError(cl_int error, int line);
 // =================================================================================================
 
 // Set the locations of the OpenCL kernel files
-#define CL_INCLUDE_FILE "src/settings.h"
-#define CL_KERNEL_FILE "src/kernels.cl"
+#define CL_INCLUDE_FILE "/home/cuda-fuck-you/Documents/finishOfMygemme/myGEMM/src/settings.h"
+#define CL_KERNEL_FILE "/home/cuda-fuck-you/Documents/finishOfMygemme/myGEMM/src/kernels.cl"
 
 // Determine the location where to output the PTX code
 #define CL_PTX_FILE "bin/myGEMM.cl.ptx"
-
-// Define OpenCL compiler options, such as "-cl-nv-maxrregcount=127"
-#define COMPILER_OPTIONS ""
 
 // =================================================================================================
 

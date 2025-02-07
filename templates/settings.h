@@ -14,13 +14,13 @@
 // =================================================================================================
 
 // Define OpenCL compiler options, such as "-cl-nv-maxrregcount=127"
-#define COMPILER_OPTIONS "-cl-std=CL1.2"
+#define COMPILER_OPTIONS "${CL_COMPILER_OPTIONS}"
 
 // Select a kernel
-#define KERNEL 2
+#define KERNEL ${SELECTED_KERNEL}
 
 // Constants for kernels 1 -- 5
-#define TS 32         // The square-root of the 2D tile-size (== work-group dims)
+#define TS ${WORK_GROUP_SIZE}         // The square-root of the 2D tile-size (== work-group dims)
 
 // Constants for kernels 3, 5
 #define WPT 8                        // The amount of work-per-thread, i.e. the thread-coarsening factor

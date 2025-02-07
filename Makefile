@@ -14,9 +14,9 @@
 # ==================================================================================================
 
 # Set the location of CUDA, OpenCL and clBlas
-CUDADIR = $(CUDA_HOME)
-OPENCLDIR = $(CUDA_HOME)
-CLBLASDIR = $(CLBLAS_HOME)
+CUDADIR = /usr/lib/x86_64-linux-gnu/
+OPENCLDIR = /usr/lib/x86_64-linux-gnu/
+CLBLASDIR = /home/linuxbrew/.linuxbrew/
 
 # Disable all CUDA components (including cuBLAS) in the code to run on a non-NVIDIA system
 ENABLE_CUDA = 1
@@ -29,7 +29,7 @@ NVCC = nvcc
 
 # Compiler flags
 CXXFLAGS += -O3 -Wall
-NVFLAGS += -O3 -arch=sm_35 -Xcompiler -Wall
+NVFLAGS += -O3 -arch=sm_86 -Xcompiler -Wall
 #NVFLAGS += -maxrregcount 127
 
 # Folders
@@ -45,13 +45,13 @@ endif
 
 # Load OpenCL and the clBlas library
 INCLUDES += -I$(OPENCLDIR)/include -I$(CLBLASDIR)/include
-LDFLAGS += -L$(OPENCLDIR)/lib64 -L$(CLBLASDIR)/lib64
+LDFLAGS += -L$(OPENCLDIR)/lib -L$(CLBLASDIR)/lib
 LDFLAGS += -lOpenCL -lclBLAS
 
 # Load CUDA and the cuBLAS library
 ifeq ($(ENABLE_CUDA),1)
 	INCLUDES += -I$(CUDADIR)/include
-	LDFLAGS += -L$(CUDADIR)/lib64
+	LDFLAGS += -L$(CUDADIR)/lib
 	LDFLAGS += -lcuda -lcudart -lcublas
 endif
 
@@ -69,7 +69,7 @@ BIN = $(BINDIR)/myGEMM
 # ==================================================================================================
 
 # All (default target)
-all: build run
+all: preprocess build run
 
 # Build the binary from the objects
 build: $(OBJS)
@@ -85,6 +85,9 @@ $(OBJDIR)/%.cpp.o: $(SRCDIR)/%.cpp $(SRCDIR)/*.h
 $(OBJDIR)/%.cu.o: $(SRCDIR)/%.cu $(SRCDIR)/*.h $(SRCDIR)/*.cl
 	@mkdir -p $(OBJDIR)
 	$(NVCC) -c $(NVFLAGS) $(DEFINES) $(INCLUDES) $< -o $@
+
+preprocess:
+	python3 apply_templates.py
 
 # Generate assembly code from the kernels and print some statistics
 inspect:
