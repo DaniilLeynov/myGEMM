@@ -89,7 +89,7 @@ Be aware that the minimal working example does not:
 *	Check for OpenCL errors
 *	Load a kernel-file from disk, instead it is embedded as a string
 
-=============
+
 
 
 <h1>Результаты тестов для GPU PowerVR B-Series BXE-4-32 на Плате StarFive </h1>
