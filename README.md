@@ -60,6 +60,10 @@ ENABLE_CUDA=0 нужно если собираем без CUDA, по умолч�
 ![image](https://github.com/user-attachments/assets/3f13cce9-e7a2-422c-a1d8-02adaf0b2bb7)
 
 
+![image](https://github.com/user-attachments/assets/7220de25-1207-451b-8bc7-075afc713e1d)
+
+![image](https://github.com/user-attachments/assets/cd00d2bd-1fe8-462a-b4ad-ba5217638205)
+
 
 
 
