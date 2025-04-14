@@ -1,6 +1,6 @@
 clGEMM
 =============
-
+Comparison of GPU performance on different devices (StarFive Board and BananaPi Board) using various OpenCL kernel parameters.
 This repo contains some files for YADRO 2025 Winter School.
 
 To collect data, you can use pull_data.py. It forwards all build arguments to make.
